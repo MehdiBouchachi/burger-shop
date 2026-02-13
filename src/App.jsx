@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 
 const burgers = [
@@ -59,13 +58,11 @@ const burgers = [
 ];
 
 export default function App() {
-  const [isOpen] = useState(true);
-
   return (
     <div className="app">
       <Header />
       <Main />
-      <Footer isOpen={isOpen} />
+      <Footer />
     </div>
   );
 }
@@ -83,10 +80,19 @@ function Main() {
   return <BurgerList />;
 }
 
-function Footer({ isOpen }) {
+function Footer() {
+  function isShopOpen() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    return (
+      (hours > 8 || (hours === 8 && minutes >= 0)) &&
+      (hours < 21 || (hours === 21 && minutes === 0))
+    );
+  }
   return (
     <footer className="footer">
-      {isOpen ? (
+      {isShopOpen() ? (
         <button className="order-btn">Order Now</button>
       ) : (
         <p className="closed-msg">
