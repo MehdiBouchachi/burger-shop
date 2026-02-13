@@ -80,34 +80,7 @@ function Header() {
 }
 
 function Main() {
-  return (
-    <main className="burger-list">
-      {burgers.map((burger) => (
-        <div
-          key={burger.id}
-          className={`burger-card ${burger.soldOut ? "sold-out" : ""}`}
-        >
-          <div className="image-wrapper">
-            <img src={burger.image} alt={burger.title} />
-          </div>
-
-          <div className="card-content">
-            <h3>{burger.title}</h3>
-
-            <p className="description">{burger.description}</p>
-
-            <p className="ingredients">{burger.ingredients.join(" • ")}</p>
-
-            <div className="price-line">
-              <span className="price">${burger.price}</span>
-
-              {burger.soldOut && <span className="sold-text">Sold Out</span>}
-            </div>
-          </div>
-        </div>
-      ))}
-    </main>
-  );
+  return <BurgerList />;
 }
 
 function Footer({ isOpen }) {
@@ -121,5 +94,40 @@ function Footer({ isOpen }) {
         </p>
       )}
     </footer>
+  );
+}
+
+function BurgerList() {
+  return (
+    <main className="burger-list">
+      {burgers.map((burger) => (
+        <BurgerCard key={burger.id} burger={burger} />
+      ))}
+    </main>
+  );
+}
+
+function BurgerCard({ burger }) {
+  const { id, title, price, image, description, ingredients, soldOut } = burger;
+  return (
+    <div key={id} className={`burger-card ${soldOut ? "sold-out" : ""}`}>
+      <div className="image-wrapper">
+        <img src={image} alt={title} />
+      </div>
+
+      <div className="card-content">
+        <h3>{title}</h3>
+
+        <p className="description">{description}</p>
+
+        <p className="ingredients">{ingredients.join(" • ")}</p>
+
+        <div className="price-line">
+          <span className="price">${price}</span>
+
+          {soldOut && <span className="sold-text">Sold Out</span>}
+        </div>
+      </div>
+    </div>
   );
 }
