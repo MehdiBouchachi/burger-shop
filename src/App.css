@@ -247,50 +247,10 @@ header h1::after {
   color: #7a7a7a;
   text-align: center;
 }
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-  .burger-list {
-    column-gap: 80px;
-    row-gap: 80px;
-  }
-
-  .image-wrapper {
-    width: 220px;
-    height: 160px;
-  }
-}
-
-@media (max-width: 900px) {
-  .burger-list {
-    grid-template-columns: 1fr;
-  }
-
-  .burger-card {
-    gap: 30px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .burger-list {
-    column-gap: 70px;
-    row-gap: 70px;
-  }
-
-  .image-wrapper {
-    width: 220px;
-    height: 160px;
-  }
-}
-
-@media (max-width: 900px) {
-  .burger-list {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ================= IPHONE 4 (320px) ================= */
 
-@media (max-width: 320px) {
+@media (max-width: 640px) {
   .app {
     padding: 24px 12px;
   }
