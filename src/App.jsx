@@ -63,47 +63,63 @@ export default function App() {
 
   return (
     <div className="app">
-      <header>
-        <h1>🍔 React Burger Shop</h1>
-        <p className="header-sub">Crafted with premium ingredients & passion</p>
-      </header>
+      <Header />
+      <Main />
+      <Footer isOpen={isOpen} />
+    </div>
+  );
+}
 
-      <main className="burger-list">
-        {burgers.map((burger) => (
-          <div
-            key={burger.id}
-            className={`burger-card ${burger.soldOut ? "sold-out" : ""}`}
-          >
-            <div className="image-wrapper">
-              <img src={burger.image} alt={burger.title} />
-            </div>
+function Header() {
+  return (
+    <header>
+      <h1>🍔 React Burger Shop</h1>
+      <p className="header-sub">Crafted with premium ingredients & passion</p>
+    </header>
+  );
+}
 
-            <div className="card-content">
-              <h3>{burger.title}</h3>
+function Main() {
+  return (
+    <main className="burger-list">
+      {burgers.map((burger) => (
+        <div
+          key={burger.id}
+          className={`burger-card ${burger.soldOut ? "sold-out" : ""}`}
+        >
+          <div className="image-wrapper">
+            <img src={burger.image} alt={burger.title} />
+          </div>
 
-              <p className="description">{burger.description}</p>
+          <div className="card-content">
+            <h3>{burger.title}</h3>
 
-              <p className="ingredients">{burger.ingredients.join(" • ")}</p>
+            <p className="description">{burger.description}</p>
 
-              <div className="price-line">
-                <span className="price">${burger.price}</span>
+            <p className="ingredients">{burger.ingredients.join(" • ")}</p>
 
-                {burger.soldOut && <span className="sold-text">Sold Out</span>}
-              </div>
+            <div className="price-line">
+              <span className="price">${burger.price}</span>
+
+              {burger.soldOut && <span className="sold-text">Sold Out</span>}
             </div>
           </div>
-        ))}
-      </main>
+        </div>
+      ))}
+    </main>
+  );
+}
 
-      <footer className="footer">
-        {isOpen ? (
-          <button className="order-btn">Order Now</button>
-        ) : (
-          <p className="closed-msg">
-            We are closed. We will open tomorrow from 8:00 AM to 9:00 PM.
-          </p>
-        )}
-      </footer>
-    </div>
+function Footer({ isOpen }) {
+  return (
+    <footer className="footer">
+      {isOpen ? (
+        <button className="order-btn">Order Now</button>
+      ) : (
+        <p className="closed-msg">
+          We are closed. We will open tomorrow from 8:00 AM to 9:00 PM.
+        </p>
+      )}
+    </footer>
   );
 }
