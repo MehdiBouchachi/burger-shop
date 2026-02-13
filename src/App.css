@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(
+    circle at top center,
+    #ffffff 0%,
+    #f3efe8 60%,
+    #ede8df 100%
+  );
+  color: #1a1a1a;
+}
+
+/* WRAPPER */
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 90px 80px;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 40px 0 60px;
+  margin-bottom: 140px;
+  position: relative;
+}
+
+/* BIG TITLE */
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #b77b2f;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  line-height: 1.1;
+  position: relative;
+}
+
+/* Icon refinement */
+
+header h1 span {
+  font-size: 2.8rem;
+}
+
+/* Elegant divider */
+
+header h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -28px;
+  width: 160px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #b77b2f, transparent);
+  opacity: 0.8;
+}
+/* Subtitle */
+
+.header-sub {
+  margin-top: 55px;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  font-weight: 500;
+}
+
+/* MENU GRID */
+.burger-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 100px;
+  row-gap: 100px;
+}
+
+/* MENU ITEM */
+.burger-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* IMAGE */
+.image-wrapper {
+  width: 260px;
+  height: 190px;
+  flex-shrink: 0;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* TITLE */
+.card-content h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.ingredients {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.price-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b77b2f;
+}
+
+/* SOLD OUT */
+.sold-text {
+  font-size: 0.85rem;
+  color: #c1121f;
+  font-weight: 600;
+}
+
+.sold-out {
+  opacity: 0.4;
+}
+
+.burger-card.sold-out {
+  position: relative;
+  opacity: 0.65;
+  filter: grayscale(30%);
+}
+
+/* Overlay ribbon */
+
+.burger-card.sold-out::after {
+  content: "SOLD OUT";
+  position: absolute;
+  top: 20px;
+  left: -10px;
+
+  background: #b77b2f;
+  color: white;
+
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  padding: 6px 18px;
+
+  transform: rotate(-6deg);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Price style when sold */
+
+.burger-card.sold-out .price {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* Ingredients fade */
+
+.burger-card.sold-out .ingredients {
+  color: #aaa;
+}
+
+/* CTA */
+.footer {
+  margin-top: 180px;
+  padding: 80px 0 120px;
+  display: flex;
+  justify-content: center;
+}
+
+/*  BUTTON  */
+
+.order-btn {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  padding: 18px 60px;
+
+  background-color: #8f5b21; /* darker gold */
+  color: #ffffff;
+
+  border: none;
+  border-radius: 4px; /* sharper */
+
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover */
+
+.order-btn:hover {
+  background-color: #754717;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Active */
+
+.order-btn:active {
+  opacity: 0.9;
+}
+
+.closed-msg {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: #7a7a7a;
+  text-align: center;
+}
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .burger-list {
+    column-gap: 80px;
+    row-gap: 80px;
+  }
+
+  .image-wrapper {
+    width: 220px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 900px) {
+  .burger-list {
+    grid-template-columns: 1fr;
+  }
+
+  .burger-card {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .burger-list {
+    column-gap: 70px;
+    row-gap: 70px;
+  }
+
+  .image-wrapper {
+    width: 220px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 900px) {
+  .burger-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= IPHONE 4 (320px) ================= */
+
+@media (max-width: 320px) {
+  .app {
+    padding: 24px 12px;
+  }
+
+  header {
+    padding: 20px 0 30px;
+    margin-bottom: 50px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    gap: 8px;
+  }
+
+  header h1 span {
+    font-size: 1.5rem;
+  }
+
+  header h1::after {
+    width: 70px;
+    bottom: -14px;
+  }
+
+  .header-sub {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    margin-top: 25px;
+  }
+
+  /* FORCE SINGLE COLUMN */
+
+  .burger-list {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  /* STACK CONTENT */
+
+  .burger-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  /* IMAGE FULL WIDTH */
+
+  .image-wrapper {
+    width: 100%;
+    height: 160px;
+  }
+
+  /* TEXT SCALING */
+
+  .card-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
+
+  .ingredients {
+    font-size: 0.75rem;
+  }
+
+  .price {
+    font-size: 0.95rem;
+  }
+
+  /* SOLD OUT RIBBON  */
+
+  .burger-card.sold-out::after {
+    top: 12px;
+    left: -8px;
+    font-size: 0.65rem;
+    padding: 4px 12px;
+  }
+
+  /* BUTTON */
+
+  .footer {
+    margin-top: 60px;
+    padding: 30px 0 60px;
+  }
+
+  .order-btn {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 0.95rem;
+  }
+}
