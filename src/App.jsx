@@ -51,7 +51,7 @@ const burgers = [
     id: 6,
     title: "Veggie Burger",
     price: 7,
-    image: "/veggie-burger.jpeg",
+    image: "/veggie-burger.jpg",
     description: "Fresh and plant-based.",
     ingredients: ["Plant patty", "Avocado", "Tomato"],
     soldOut: true,
